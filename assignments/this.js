@@ -13,6 +13,9 @@
 
 // code example for Window Binding
 
+// console.log(this);
+
+
 // Principle 2
 
 // code example for Implicit Binding
