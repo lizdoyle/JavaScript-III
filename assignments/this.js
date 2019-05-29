@@ -43,4 +43,5 @@
 
 // code example for Explicit Binding
 
-// call apply or bind
+// call (calls immediately) apply or bind (saves for later)
+
