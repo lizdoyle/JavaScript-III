@@ -37,7 +37,7 @@ const Neon = {
     }
 
 }
-
+// Neon implicitly bound to this as it is to the left of th dot
 Neon.lightUp();
 
 // Principle 3
@@ -80,11 +80,15 @@ function FavoriteShow(tv) {
 const show = new FavoriteShow({name:'Game of Thrones', genre: 'drama', year: 2019});
 const stream = new FavoriteShow({name:'Hey Arnold', genre: 'cartoon', year: 1999});
 
+
 // console.log(newShow);
 // console.log(newStream);
 
+// call runs immediately and uses params
 show.play.call(stream);
-stream.play.apply(show);
+// apply uses an array
+stream.play.apply(FavoriteShow, [show]);
+// bind grabs function for new this context and saves for later
 
 // show.play();
 // stream.play();
