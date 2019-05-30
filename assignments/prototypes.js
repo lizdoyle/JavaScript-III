@@ -18,10 +18,10 @@
 
 // initial object with this attributes
 
-function GameObject(createdAt, name, dimensions) {
-  this.createdAt = createdAt;
-  this.name = name;
-  this.dimensions = dimensions;
+function GameObject(attributes) {
+  this.createdAt = attributes.createdAt;
+  this.name = attributes.name;
+  this.dimensions = attributes.dimensions;
   
 }
 
@@ -40,9 +40,9 @@ GameObject.prototype.destroy = function() {
 
 // introduce health CHILD element
 
-function CharacterStats(createdAt, name, dimensions, healthPoints) {
-  GameObject.call(this, createdAt, name, dimensions);
-  this.healthPoints = healthPoints;
+function CharacterStats(attributes) {
+  GameObject.call(this, attributes);
+  this.healthPoints = attributes.healthPoints;
   
 }
 
@@ -50,8 +50,10 @@ function CharacterStats(createdAt, name, dimensions, healthPoints) {
 
 CharacterStats.prototype = Object.create(GameObject.prototype);
 
+// CharacterStats.prototype.constructor = CharacterStats;
+
 CharacterStats.prototype.takeDamage = function() {
-  return '${this.name} took damage.';
+  return `${this.name} took damage.`;
 };
 
 
@@ -64,18 +66,18 @@ CharacterStats.prototype.takeDamage = function() {
   * should inherit destroy() from GameObject through CharacterStats
   * should inherit takeDamage() from CharacterStats
 */
-function Humanoid(createdAt, name, dimensions, healthPoints, team, weapons, language) {
-  CharacterStats.call(this, createdAt, name, dimensions, healthPoints);
-  this.team = team;
-  this.weapons = weapons;
-  this.language = language;
+function Humanoid(attributes) {
+  CharacterStats.call(this, attributes);
+  this.team = attributes.team;
+  this.weapons = attributes.weapons;
+  this.language = attributes.language;
   
 }
 
 Humanoid.prototype = Object.create(CharacterStats.prototype);
 
 Humanoid.prototype.greet = function() {
-  return '${this.Humanoid} offers a greeting in ${this.language}.';
+  return `${this.name} offers a greeting in ${this.language}.`;
 }; 
 
 /*
