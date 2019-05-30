@@ -72,7 +72,7 @@ function Humanoid(createdAt, name, dimensions, healthPoints, team, weapons, lang
   
 }
 
-Humanoid.prototype = Object.create(CharacterStats);
+Humanoid.prototype = Object.create(CharacterStats.prototype);
 
 Humanoid.prototype.greet = function() {
   return '${this.Humanoid} offers a greeting in ${this.language}.';
